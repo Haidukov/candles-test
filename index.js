@@ -2,12 +2,13 @@ const express = require('express');
 const net = require('net');
 const converter = require('hex2dec');
 
+const printToDevice = data => Buffer.from(data.split(' ').map(x => parseInt(x, 16)));
+
 const server = net.createServer((socket) => {
     socket.on('data', data => {
         console.log(data.toString());
         console.log(eval(data));
-        const data2 = Buffer.from('01'.split(' ').map(x => parseInt(x, 16)));
-        socket.end(Buffer.from(data2));
+        socket.end(printToDevice('01'));
     });
 });
 
