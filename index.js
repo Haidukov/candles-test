@@ -7,10 +7,14 @@ const server = net.createServer((socket) => {
         console.log(data.toString());
         console.log(eval(data));
         const data2 = Buffer.from('01'.split(' ').map(x => parseInt(x, 16)));
-        socket.end(Buffer.from(data2).toString('hex'));
+        socket.end(Buffer.from(data2));
     });
 });
 
+/*
+const data2 = Buffer.from('01'.split(' ').map(x => parseInt(x, 16)));
+console.log(Buffer.from(data2));
+*/
 
 
 
