@@ -6,12 +6,14 @@ const server = net.createServer((socket) => {
     socket.pipe(socket);
 });
 
-server.listen(8080);
+server.listen(5027, () => {
+    console.log('TCP is listening port 5027');
+});
 
 const app = express();
 
 app.get('/test', (req, res) => res.send('hello'));
 
-app.listen(5027, () => {
+app.listen(8080, () => {
     console.log('Application is listening port 8080');
 });
