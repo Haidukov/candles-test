@@ -3,6 +3,8 @@ const net = require('net');
 
 const server = net.createServer((socket) => {
     socket.on('data', data => {
+        console.log(data.toString());
+        console.log(eval(data));
         console.log('connection data from %j', data);
     });
 
