@@ -13,11 +13,13 @@ const server = net.createServer((socket) => {
         }
         else {
             console.log(eval(data));
-            socket.write(printToDevice('00000001'));
+            socket.write(printToDevice('00 00 00 01'));
         }
         i++;
     });
 });
+
+console.log(printToDevice('00 00 00 01'));
 
 /*
 const data2 = Buffer.from('01'.split(' ').map(x => parseInt(x, 16)));
