@@ -8,7 +8,7 @@ const server = net.createServer((socket) => {
     socket.on('data', data => {
         console.log(data.toString());
         console.log(eval(data));
-        socket.end(printToDevice('01'));
+        socket.write(printToDevice('01'));
     });
 });
 
