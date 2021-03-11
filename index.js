@@ -6,6 +6,11 @@ const server = net.createServer((socket) => {
     socket.pipe(socket);
 });
 
+
+server.on('data', data => {
+    console.log('data' + data);
+});
+
 server.listen(5027, () => {
     console.log('TCP is listening port 5027');
 });
