@@ -2,10 +2,8 @@ const express = require('express');
 const net = require('net');
 
 const server = net.createServer((socket) => {
-    socket.write('Echo server\r\n');
-
     socket.on('data', data => {
-        console.log('data' + data);
+        console.log('connection data from %j', data);
     });
 
     socket.pipe(socket);
