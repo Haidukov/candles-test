@@ -5,10 +5,15 @@ const converter = require('hex2dec');
 const printToDevice = data => Buffer.from(data.split(' ').map(x => parseInt(x, 16)));
 
 const server = net.createServer((socket) => {
+    let i = 0;
     socket.on('data', data => {
-        console.log(data.toString());
-        console.log(eval(data));
-        socket.write(printToDevice('01'));
+        if (i === 0) {
+            console.log(eval(data));
+            socket.write(printToDevice('01'));
+        }
+        else {
+            socket.write(printToDevice('00000001'));
+        }
     });
 });
 
