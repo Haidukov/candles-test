@@ -15,6 +15,7 @@ const server = net.createServer((socket) => {
             console.log(eval(data));
             socket.write(printToDevice('00000001'));
         }
+        i++;
     });
 });
 
