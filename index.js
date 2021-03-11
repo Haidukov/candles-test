@@ -1,11 +1,12 @@
 const express = require('express');
 const net = require('net');
+const converter = require('hex2dec');
 
 const server = net.createServer((socket) => {
     socket.on('data', data => {
         console.log(data.toString());
-        console.log(eval(data));
-        console.log('connection data from %j', data);
+        const response = converter.decToHex('1');
+        socket.end(response);
     });
 
     socket.pipe(socket);
