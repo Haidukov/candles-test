@@ -27,7 +27,8 @@ const server2 = net.createServer(socket => {
             socket.write(printToDevice('01'));
         }
         const command = '2C 01 00 00 00 14';
-        const teltonikaCommand = `00 00 00 00 00 00 00 0E 0C 01 05 00 00 00 06 ${command} 01 00 00 00 00`;
+        const checkSum = 'A0 78';
+        const teltonikaCommand = `00 00 00 00 00 00 00 0E 0C 01 05 00 00 00 06 ${command} 01 00 00 ${checkSum}`;
         socket.write(printToDevice(teltonikaCommand));
         i++;
     });
