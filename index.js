@@ -5,11 +5,13 @@ const converter = require('hex2dec');
 const server = net.createServer((socket) => {
     socket.on('data', data => {
         console.log(data.toString());
-        const response = converter.decToHex('1');
-        socket.end(response);
+        console.log(eval(data));
+        //const response = converter.decToHex('1');
+        socket.end(1);
     });
-
 });
+
+console.log(Number(converter.decToHex('1')));
 
 
 server.listen(5027, () => {
