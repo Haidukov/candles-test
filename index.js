@@ -6,12 +6,12 @@ const server = net.createServer((socket) => {
     socket.on('data', data => {
         console.log(data.toString());
         console.log(eval(data));
-        const response = converter.decToHex('1');
-        socket.end(Buffer.from(response).toString('hex'));
+        const data2 = Buffer.from('01'.split(' ').map(x => parseInt(x, 16)));
+        socket.end(Buffer.from(data2).toString('hex'));
     });
 });
 
-//console.log(Buffer.from('0x1').toString('hex'));
+
 
 
 server.listen(5027, () => {
