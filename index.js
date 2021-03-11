@@ -6,7 +6,7 @@ const server = net.createServer((socket) => {
     socket.pipe(socket);
 });
 
-server.listen(8080, '127.0.0.1');
+server.listen(8080);
 
 const app = express();
 
