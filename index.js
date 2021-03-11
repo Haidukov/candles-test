@@ -9,7 +9,6 @@ const server = net.createServer((socket) => {
         socket.end(response);
     });
 
-    socket.pipe(socket);
 });
 
 
